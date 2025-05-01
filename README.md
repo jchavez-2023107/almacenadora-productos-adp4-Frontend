@@ -55,7 +55,7 @@ Trabajen en la carpeta correspondiente (src/components, src/pages, src/services,
 
 Asegúrense de que el proyecto arranque sin errores.
 
-### 7. Preparar tu Pull Request
+### 7. Preparar su Pull Request
 
 ```bash
 git add .
@@ -65,12 +65,12 @@ git push origin <su_usuario>
 
 ### 8. Luego en GitHub:
 
-1. Ve a Pull requests → New pull request
+1. Vayan a Pull requests → New pull request
 2. Base branch: develop
-3. Compare branch: <tu_usuario>
+3. Compare branch: <su_usuario>
 4. Título: feats: <breve título de lo trabajado>
-5. Describe qué has implementado y a qué Historia de Usuario corresponde.
-6. Asigna a un compañero para revisión y crea el PR.
-7. Avisa para poder hacer merge con la rama develop por favor.
+5. Describan qué han implementado y a qué Historia de Usuario corresponde.
+6. Asignen a un compañero para revisión y creen el PR.
+7. Avisen para poder hacer merge con la rama develop por favor.
 
 ¡Gracias!
