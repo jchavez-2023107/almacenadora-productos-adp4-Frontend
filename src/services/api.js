@@ -1,5 +1,4 @@
 import axios from "axios";
-
 //Configuración básica (General o genérica)
 const apiClient = axios.create(
     {
