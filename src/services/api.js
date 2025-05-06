@@ -3,7 +3,7 @@ import axios from "axios";
 //Configuración básica (General o genérica)
 const apiClient = axios.create(
     {
-        baseURL: 'http://localhost:2656/twitch/v1',
+        baseURL: 'http://localhost:2636/almacenadora404/v1',
         timeout: 2000
     }
 )

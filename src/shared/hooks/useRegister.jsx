@@ -1,49 +1,50 @@
-
-//Manejar la lógica de la respuesta del API
-import React, { useState } from 'react'
-import { registerRequest } from '../../services/api'
-import toast from 'react-hot-toast'
+import { useState } from 'react';
+import { registerRequest } from '../../services/api';
+import toast from 'react-hot-toast';
 
 export const useRegister = () => {
-    //Ver si aún está cargando la respuesta el API
-    const [isLoading, setIsLoading] = useState(false)
-    //Saber si la consulta al API trae errores
-    const [error, setError] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(false);
 
-    //Función que consulta
-    const register = async(email, username, password)=>{
-        setIsLoading(true)
+    const register = async (email, username, password) => {
+        setIsLoading(true);
+
         const user = {
+            name: "Sebastian",
+            surname: "Istacuy",
             email,
             username,
-            password
-        }
-        //Consulto al api mediante la función del api.js
-        const response = await registerRequest(user)
-        setIsLoading(false)
+            password,
+            phone: "+502 36692558", // opcional
+            role: "CLIENT" // puedes omitir si es el valor por defecto
+        };
 
-        //Logica de lo que respondió el back
-        if(response.error){
-            setError(true)
-            if(response?.err?.response?.data?.errors){
-                let arrayErrors = response?.err?.response?.data?.errors
+        const response = await registerRequest(user);
+        setIsLoading(false);
+
+        if (response.error) {
+            setError(true);
+            if (response?.err?.response?.data?.errors) {
+                const arrayErrors = response?.err?.response?.data?.errors;
                 for (const error of arrayErrors) {
-                    return toast.error(error.msg)
+                    return toast.error(error.msg);
                 }
             }
             return toast.error(
-                response?.err?.response?.data?.msg ||
+                response?.err?.response?.data?.message ||
                 response?.err?.data?.msg ||
-                'Error general al intentar registrar el usuario. Intente de nuevo, todo mal...'
-            )
+                'Error general al intentar registrar el usuario.'
+            );
         }
-        setError(false)
-        return toast.success('TODO GOOD')
-    }
-  return {
-    register,
-    isLoading,
-    error,
-    setError
-  }
-}
+
+        setError(false);
+        return toast.success('Usuario registrado correctamente 🎉');
+    };
+
+    return {
+        register,
+        isLoading,
+        error,
+        setError
+    };
+};
